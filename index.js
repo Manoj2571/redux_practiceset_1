@@ -58,7 +58,7 @@ app.delete("/books/:id", async (req, res) => {
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: error });
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
