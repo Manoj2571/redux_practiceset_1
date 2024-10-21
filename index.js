@@ -44,7 +44,7 @@ app.post("/books", async (req, res) => {
 
 app.delete("/books/:id", async (req, res) => {
   const bookId = req.params.id;
-
+  console.log(bookId)  
   try {
     const deletedBook = await Books.findByIdAndRemove(bookId);
 
