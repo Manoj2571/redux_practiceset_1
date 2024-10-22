@@ -31,10 +31,10 @@ app.get("/books", async (req, res) => {
 });
 
 app.post("/books", async (req, res) => {
-  const { bookName, author, genre } = req.body;
+  const { title, author, genre } = req.body;
 
   try {
-    const bookData = new Books({ bookName, author, genre });
+    const bookData = new Books({ title, author, genre });
     await bookData.save();
     res.status(201).json(bookData);
   } catch (error) {
@@ -44,7 +44,6 @@ app.post("/books", async (req, res) => {
 
 app.delete("/books/:id", async (req, res) => {
   const bookId = req.params.id;
-
   try {
     const deletedBook = await Books.findByIdAndDelete(bookId);
 
